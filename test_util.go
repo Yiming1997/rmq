@@ -18,8 +18,9 @@ func testRedis(t testing.TB) (options *redis.Options, close func()) {
 		return &redis.Options{Addr: redisAddr}, func() {}
 	}
 
-	mr := miniredis.RunT(t)
-	return &redis.Options{Addr: mr.Addr()}, mr.Close
+	//mr := miniredis.RunT(t)
+	// return &redis.Options{Addr: mr.Addr()}, mr.Close
+	return &redis.Options{Addr: "127.0.0.1:6379"}, func() {}
 }
 
 func testClusterRedis(t testing.TB) (options *redis.ClusterOptions, close func()) {
